@@ -1,0 +1,102 @@
+﻿
+@model BookModel;
+
+@{
+    ViewData["Title"] = "GetBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class=" container py-5">
+    <h6>Book Details</h6>
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/image/book/book1.jfif" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/image/book/book2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/image/book/book3.jfif" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="h3">@Model.Title</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-primary">
+                    <span class=" label label-primary">By: </span>
+                    <span class="font-monospace">@Model.Author</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="description">
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn  btn-outline-primary btn-sm">Read Now</button>
+                </div>
+            </div>
+            <hr />
+            <ul class="list-group">
+                <li class="list-group-item"><span class="font-weight-bold fw-bold">Category - </span> @Model.Category</li>
+                <li class="list-group-item"><span class="font-weight-bold fw-bold">Total Pages - </span> @Model.TotlaPages</li>
+                <li class="list-group-item"><span class="font-weight-bold fw-bold">Langauge - </span> @Model.Langauge</li>
+            </ul>
+        </div>
+
+        <div class="mt-4 bg-light">
+            <h3>Simialr Books</h3>
+            <div class="row">
+                @for (int i = 1; i <= 6; i++)
+                {
+                    <div class=" col-md-4">
+                        <div class=" card mb-4 shadow-sm">
+                             <img src="~/image/book/book2.jpg" class="card-img-top" alt="book+@i"/>
+                            @*<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+    *@
+                            <div class=" card-body">
+                                <p class="card-text">Book Description</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">View Details</a>
+                                    </div>
+                                    <small class=" text-muted">Author Name</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
